@@ -57,9 +57,13 @@ public abstract class BaseActivity extends AppCompatActivity {
         backIv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-             l.onClick();
+                l.onClick();
             }
         });
+    }
+
+    public void setBackBtnVisible(boolean visible) {
+        backIv.setVisibility(visible ? View.VISIBLE : View.GONE);
     }
 
     public void setTitile(String title) {
