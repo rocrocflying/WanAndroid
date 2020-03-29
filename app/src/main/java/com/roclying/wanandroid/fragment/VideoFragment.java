@@ -1,4 +1,5 @@
-package fragment;
+package com.roclying.wanandroid.fragment;
+
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,13 +12,12 @@ import androidx.fragment.app.Fragment;
 
 import com.roclying.wanandroid.R;
 
-public class MineFragment extends Fragment {
-
+public class VideoFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View mainView = inflater.inflate(R.layout.fragment_mine_layout, null);
+        View mainView = inflater.inflate(R.layout.fragment_video_layout, null);
         return mainView;
     }
 }

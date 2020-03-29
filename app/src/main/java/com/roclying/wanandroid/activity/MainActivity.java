@@ -11,12 +11,12 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.roclying.wanandroid.R;
+import com.roclying.wanandroid.fragment.MainFragment;
+import com.roclying.wanandroid.fragment.MineFragment;
+import com.roclying.wanandroid.fragment.VideoFragment;
 
 import java.util.ArrayList;
 
-import fragment.MainFragment;
-import fragment.MineFragment;
-import fragment.VideoFragment;
 
 public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedChangeListener {
 
@@ -48,6 +48,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         videoRbtn = findViewById(R.id.rbtn_video);
         mineRbtn = findViewById(R.id.rbtn_me);
 
+
     }
 
     @Override
@@ -56,10 +57,12 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         normalColor = getResources().getColor(R.color.color_000000);
         selColor = getResources().getColor(R.color.color_1296db);
 
+
         adapter = new MainFragmentAdapter(getSupportFragmentManager());
         fragments.add(new MainFragment());
         fragments.add(new VideoFragment());
         fragments.add(new MineFragment());
+
 
         viewPager.setAdapter(adapter);
 
