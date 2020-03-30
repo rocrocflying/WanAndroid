@@ -65,6 +65,9 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
 
 
         viewPager.setAdapter(adapter);
+        viewPager.setCurrentItem(0);
+        homeRbtn.setChecked(true);
+        updateTab();
 
 
     }

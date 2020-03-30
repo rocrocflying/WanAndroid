@@ -27,9 +27,9 @@ public class HomePagePresenter implements MainContract.presenter {
 
 
     @Override
-    public ArrayList<Article.ArticleItem> getHomePageArticleList() {
+    public ArrayList<Article.ArticleItem> getHomePageArticleList(int page, final boolean isRefresh) {
 
-        Disposable disposable = RetrofitManager.getInstance().getRequest().getHomeArticle(0)
+        Disposable disposable = RetrofitManager.getInstance().getRequest().getHomeArticle(page)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<ResposeBody<Article>>() {
@@ -38,7 +38,12 @@ public class HomePagePresenter implements MainContract.presenter {
                                    for (int i = 0; i < articles.getData().getDatas().size(); i++) {
                                        Log.v(TAG, "第" + i + "个" + articles.getData().getDatas().get(i).toString() + "\n");
                                    }
-                                view.showHomePageArticleList(articles.getData().getDatas());
+                                   if (isRefresh) {
+                                       view.refresh(articles.getData().getDatas());
+                                       return;
+
+                                   }
+                                   view.loadMore(articles.getData().getDatas());
 
                                }
                            }, new Consumer<Throwable>() {
@@ -54,4 +59,20 @@ public class HomePagePresenter implements MainContract.presenter {
                 );
         return null;
     }
+
+    @Override
+    public void refresh() {
+        getHomePageArticleList(0, true);
+
+    }
+
+    @Override
+    public void loadMore(int page) {
+
+        getHomePageArticleList(page, false);
+
+
+    }
+
+
 }
