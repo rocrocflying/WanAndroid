@@ -10,5 +10,8 @@
     <color name="color_1296db">#1296db</color>
     <color name="bg_item">#FFFFFF</color>
     <color name="color_divder">#EBEBEB</color>
-    <color name="color_363636">#363636</color>
+    <color name="color_tab_mine_item">#363636</color>
+    <color name="color_fragment_header">#FFFFFF</color>
+    <color name="color_activity_header">#FFFFFF</color>
+
 </resources>

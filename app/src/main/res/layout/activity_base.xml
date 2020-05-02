@@ -8,7 +8,7 @@
         android:id="@+id/action_bar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/color_white"
+        android:background="@color/color_activity_header"
         android:gravity="center_vertical">
 
         <ImageView
@@ -41,7 +41,10 @@
             android:textSize="14sp"
             android:visibility="gone" />
     </RelativeLayout>
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/color_divder" />
     <FrameLayout
         android:id="@+id/fl_content"
         android:layout_width="match_parent"

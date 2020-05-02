@@ -20,6 +20,7 @@ import com.roclying.wanandroid.R;
 import com.scwang.smartrefresh.header.MaterialHeader;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
+import com.scwang.smartrefresh.layout.footer.BallPulseFooter;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 
 import java.util.ArrayList;
@@ -61,6 +62,8 @@ public class MeizhiFragment extends BaseFragment implements MeizhiContract.meizh
         meiziRefreshLayout = view.findViewById(R.id.smart_refresh_layout);
         meiziRefreshLayout.setEnableLoadMore(true);
         meiziRefreshLayout.setRefreshHeader(new MaterialHeader(getContext()));
+        meiziRefreshLayout.setRefreshFooter(new BallPulseFooter(getContext()).setAnimatingColor(getResources().getColor(R.color.color_1296db)));
+
         adapter = new MeiziAdapter(meizhis, getContext());
         meiziRecylerView.setAdapter(adapter);
     }

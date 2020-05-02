@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~     (C) Copyright 2019, ForgetSky.
   ~
   ~     Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,11 +18,15 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
-    <color name="color_white">#FFFFFF</color>
-    <color name="color_000000">#FFFFFF</color>
+    <color name="color_white">#9e9e9e</color>
+    <color name="color_000000">#9e9e9e</color>
     <color name="color_2f2f2f">#2f2f2f</color>
-    <color name="color_divider">#E5E5E5</color>
+    <color name="color_divider">#212121</color>
     <color name="color_1296db">#1296db</color>
     <color name="bg_item">#212121</color>
+    <color name="color_fragment_header">#212121</color>
+    <color name="color_divder">#212121</color>
+    <color name="color_tab_mine_item">#9e9e9e</color>
+    <color name="color_activity_header">#212121</color>
 
 </resources>

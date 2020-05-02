@@ -5,7 +5,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/color_white"
+        android:background="@color/color_fragment_header"
         android:gravity="center_vertical">
 
         <TextView

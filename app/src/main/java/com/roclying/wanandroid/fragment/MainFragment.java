@@ -42,6 +42,7 @@ import model.homepage.Article;
 import network.ResposeBody;
 import network.RetrofitManager;
 import presenter.HomePagePresenter;
+import utils.WParam;
 
 import static androidx.recyclerview.widget.DividerItemDecoration.VERTICAL;
 
@@ -66,12 +67,14 @@ public class MainFragment extends BaseFragment implements MainContract.View {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        boolean isNightMode = WParam.getBoolean(WParam.NIGHT_MODE);
         recyclerView = view.findViewById(R.id.recyler_view);
         recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), VERTICAL));
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         smartRefreshLayout = view.findViewById(R.id.smart_refresh_layout);
         smartRefreshLayout.setEnableLoadMore(true);
-        smartRefreshLayout.setRefreshHeader(new BezierCircleHeader(getContext()));
+        smartRefreshLayout.setRefreshHeader(isNightMode?new BezierRadarHeader(getContext()):new BezierCircleHeader(getContext()));
+        smartRefreshLayout.setRefreshFooter(new BallPulseFooter(getContext()).setAnimatingColor(getResources().getColor(R.color.color_1296db)));
         adapter = new HomePageAdapter(getContext(), articleItems);
         recyclerView.setAdapter(adapter);
 

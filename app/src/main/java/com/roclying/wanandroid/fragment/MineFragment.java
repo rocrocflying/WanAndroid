@@ -8,18 +8,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
 import android.widget.Switch;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 
 import com.roclying.wanandroid.R;
 
+import utils.WParam;
+
 public class MineFragment extends BaseFragment {
 
     private Switch nightModeSwitch;
-
+    private TextView nightModeTv;
     private Activity activity;
 
     @Override
@@ -32,23 +36,28 @@ public class MineFragment extends BaseFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         nightModeSwitch = view.findViewById(R.id.switch_nightmode);
-
+        nightModeTv = view.findViewById(R.id.tv_nightmode);
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        boolean isNightMode = WParam.getBoolean(WParam.NIGHT_MODE);
+        nightModeSwitch.setChecked(isNightMode);
         nightModeSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(isChecked){
+                if (isChecked) {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                    WParam.putBoolean(WParam.NIGHT_MODE, true);
 
-                }else{
+                } else {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                    WParam.putBoolean(WParam.NIGHT_MODE, false);
 
                 }
             }
+
         });
 
     }

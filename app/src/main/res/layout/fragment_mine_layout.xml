@@ -14,9 +14,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:textSize="15sp"
-            android:textColor="@color/color_363636"
-            android:text="@string/title_collection" />
+            android:text="@string/title_collection"
+            android:textColor="@color/color_tab_mine_item"
+            android:textSize="16sp" />
 
         <ImageView
             android:layout_width="20dp"
@@ -30,7 +30,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="0.5dp"
         android:background="@color/color_divder" />
 
     <RelativeLayout
@@ -39,40 +39,14 @@
         android:gravity="center_vertical">
 
         <TextView
+            android:id="@+id/tv_nightmode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:textSize="15sp"
-            android:textColor="@color/color_363636"
-            android:text="@string/title_nightmode" />
+            android:text="@string/title_nightmode"
+            android:textColor="@color/color_tab_mine_item"
+            android:textSize="16sp" />
 
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="12dp"
-            android:src="@drawable/ic_arrow_right" />
-
-    </RelativeLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/color_divder" />
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:gravity="center_vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:textSize="15sp"
-            android:textColor="@color/color_363636"
-            android:text="@string/title_setting" />
 
         <Switch
             android:id="@+id/switch_nightmode"
@@ -86,7 +60,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="0.5dp"
         android:background="@color/color_divder" />
 
     <RelativeLayout
@@ -98,9 +72,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:textSize="15sp"
-            android:textColor="@color/color_363636"
-            android:text="@string/title_about" />
+            android:text="@string/title_setting"
+            android:textColor="@color/color_tab_mine_item"
+            android:textSize="16sp" />
 
         <ImageView
             android:layout_width="20dp"
@@ -114,6 +88,34 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="0.5dp"
+        android:background="@color/color_divder" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/title_about"
+            android:textColor="@color/color_tab_mine_item"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="12dp"
+            android:src="@drawable/ic_arrow_right" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
         android:background="@color/color_divder" />
 </LinearLayout>
