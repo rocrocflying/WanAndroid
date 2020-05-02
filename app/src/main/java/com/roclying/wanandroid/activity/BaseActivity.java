@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +23,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     private ImageView backIv;
     private TextView titleTv;
     private OnLeftBtnClickListener l;
+    private RelativeLayout actionBarLayout;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -29,6 +31,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_base);
         View baseView = LayoutInflater.from(this).inflate(R.layout.activity_base, null);
+        actionBarLayout = baseView.findViewById(R.id.action_bar);
         FrameLayout contentView = baseView.findViewById(R.id.fl_content);
         getContentViews(baseView);
         LayoutInflater.from(this).inflate(getLayoutId(), contentView, true);
@@ -66,6 +69,10 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     public void setBackBtnVisible(boolean visible) {
         backIv.setVisibility(visible ? View.VISIBLE : View.GONE);
+    }
+
+    public void hideActionBar() {
+        actionBarLayout.setVisibility(View.GONE);
     }
 
     public void setTitile(String title) {

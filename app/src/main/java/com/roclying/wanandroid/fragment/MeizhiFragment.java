@@ -32,7 +32,7 @@ import presenter.MeizhiPagerPresenter;
 
 import static androidx.recyclerview.widget.DividerItemDecoration.VERTICAL;
 
-public class MeizhiFragment extends Fragment implements MeizhiContract.meizhiView {
+public class MeizhiFragment extends BaseFragment implements MeizhiContract.meizhiView {
 
     private SmartRefreshLayout meiziRefreshLayout;
     private RecyclerView meiziRecylerView;
@@ -40,14 +40,17 @@ public class MeizhiFragment extends Fragment implements MeizhiContract.meizhiVie
     private ArrayList<Meizhi> meizhis = new ArrayList<>();
     private MeizhiPagerPresenter pagerPresenter;
     private int page = 0;
+    private boolean hasLoadData = false;
 
 
-    @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    int getLayout() {
+        return R.layout.fragment_video_layout;
+    }
 
-        View meiziView = inflater.inflate(R.layout.fragment_video_layout, null);
-        return meiziView;
+    @Override
+    String getTitle() {
+        return getString(R.string.title_tab_video);
     }
 
     @Override
@@ -66,7 +69,6 @@ public class MeizhiFragment extends Fragment implements MeizhiContract.meizhiVie
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         pagerPresenter = new MeizhiPagerPresenter(this);
-
         initListener();
 
     }
@@ -74,8 +76,10 @@ public class MeizhiFragment extends Fragment implements MeizhiContract.meizhiVie
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
-        if (isVisibleToUser) {
+        if (isVisibleToUser && !hasLoadData) {
             pagerPresenter.getMeizhList(1, true);
+            meiziRefreshLayout.autoRefresh();
+            hasLoadData = true;
         }
     }
 
@@ -90,6 +94,7 @@ public class MeizhiFragment extends Fragment implements MeizhiContract.meizhiVie
             @Override
             public void onRefresh(@NonNull RefreshLayout refreshLayout) {
                 pagerPresenter.refresh();
+
 
             }
         });

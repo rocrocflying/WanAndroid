@@ -37,7 +37,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         super.onCreate(savedInstanceState);
         setTitile(getString(R.string.app_name));
         setBackBtnVisible(false);
-
+        hideActionBar();
     }
 
     @Override
@@ -115,7 +115,6 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         homeRbtn.setTextColor(homeRbtn.isChecked() ? selColor : normalColor);
         videoRbtn.setTextColor(videoRbtn.isChecked() ? selColor : normalColor);
         mineRbtn.setTextColor(mineRbtn.isChecked() ? selColor : normalColor);
-
     }
 
 

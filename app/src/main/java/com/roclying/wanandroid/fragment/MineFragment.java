@@ -16,7 +16,7 @@ import androidx.fragment.app.Fragment;
 
 import com.roclying.wanandroid.R;
 
-public class MineFragment extends Fragment {
+public class MineFragment extends BaseFragment {
 
     private Switch nightModeSwitch;
 
@@ -26,14 +26,6 @@ public class MineFragment extends Fragment {
     public void onAttach(Activity context) {
         super.onAttach(context);
         activity = context;
-    }
-
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-        View mainView = inflater.inflate(R.layout.fragment_mine_layout, null);
-        return mainView;
     }
 
     @Override
@@ -59,5 +51,15 @@ public class MineFragment extends Fragment {
             }
         });
 
+    }
+
+    @Override
+    int getLayout() {
+        return R.layout.fragment_mine_layout;
+    }
+
+    @Override
+    String getTitle() {
+        return getString(R.string.title_tab_me);
     }
 }

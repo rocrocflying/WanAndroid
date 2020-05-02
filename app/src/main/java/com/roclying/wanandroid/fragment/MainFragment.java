@@ -45,7 +45,7 @@ import presenter.HomePagePresenter;
 
 import static androidx.recyclerview.widget.DividerItemDecoration.VERTICAL;
 
-public class MainFragment extends Fragment implements MainContract.View {
+public class MainFragment extends BaseFragment implements MainContract.View {
 
     private static final String TAG = "MainFragment";
     private SmartRefreshLayout smartRefreshLayout;
@@ -54,13 +54,13 @@ public class MainFragment extends Fragment implements MainContract.View {
     private ArrayList<Article.ArticleItem> articleItems = new ArrayList<>();
     private int page;
     private HomePagePresenter pagePresenter;
+    private boolean hasLoadData = false;
 
-    @Nullable
+
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
 
-        View mainView = inflater.inflate(R.layout.fragment_home_layout, null);
-        return mainView;
     }
 
     @Override
@@ -97,10 +97,22 @@ public class MainFragment extends Fragment implements MainContract.View {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         pagePresenter = new HomePagePresenter(this);
-        pagePresenter.getHomePageArticleList(0, true);
+        if (!hasLoadData) {
+            pagePresenter.getHomePageArticleList(0, true);
+            hasLoadData = true;
+        }
         initListener();
 
+    }
 
+    @Override
+    int getLayout() {
+        return R.layout.fragment_home_layout;
+    }
+
+    @Override
+    String getTitle() {
+        return getString(R.string.title_tab_home);
     }
 
     @Override
