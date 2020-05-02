@@ -2,6 +2,7 @@ package com.roclying.wanandroid.fragment;
 
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,7 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 
 import com.roclying.wanandroid.R;
+import com.roclying.wanandroid.activity.MainActivity;
 
 import utils.WParam;
 
@@ -56,6 +58,8 @@ public class MineFragment extends BaseFragment {
                     WParam.putBoolean(WParam.NIGHT_MODE, false);
 
                 }
+                getActivity().finish();
+                getContext().startActivity(new Intent(getActivity(), MainActivity.class));
             }
 
         });
