@@ -27,6 +27,7 @@ import com.scwang.smartrefresh.layout.footer.BallPulseFooter;
 import com.scwang.smartrefresh.layout.footer.ClassicsFooter;
 import com.scwang.smartrefresh.layout.footer.FalsifyFooter;
 import com.scwang.smartrefresh.layout.header.BezierRadarHeader;
+import com.scwang.smartrefresh.layout.header.FalsifyHeader;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
 
 import java.util.ArrayList;
@@ -70,8 +71,7 @@ public class MainFragment extends Fragment implements MainContract.View {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         smartRefreshLayout = view.findViewById(R.id.smart_refresh_layout);
         smartRefreshLayout.setEnableLoadMore(true);
-        smartRefreshLayout.setRefreshHeader(new DeliveryHeader(getContext()));
-        smartRefreshLayout.setRefreshFooter(new ClassicsFooter(getContext()).setSpinnerStyle(SpinnerStyle.Scale));
+        smartRefreshLayout.setRefreshHeader(new BezierCircleHeader(getContext()));
         adapter = new HomePageAdapter(getContext(), articleItems);
         recyclerView.setAdapter(adapter);
 
@@ -113,9 +113,10 @@ public class MainFragment extends Fragment implements MainContract.View {
         if (articleItems != null && articleItems.size() > 0) {
             articleItems.clear();
         }
+        smartRefreshLayout.autoRefresh();
         articleItems.addAll(list);
         adapter.notifyDataSetChanged();
-        smartRefreshLayout.finishRefresh(800);
+        smartRefreshLayout.finishRefresh(1000);
 
 
     }

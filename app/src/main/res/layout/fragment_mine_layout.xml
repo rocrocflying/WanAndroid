@@ -2,10 +2,27 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingLeft="12dp"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/title_tab_me" />
+   <RelativeLayout
+       android:layout_width="match_parent"
+       android:layout_height="50dp"
+
+       android:gravity="center_vertical">
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_centerVertical="true"
+           android:text="切换夜间模式"/>
+
+       <Switch
+           android:id="@+id/switch_nightmode"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_centerVertical="true"
+           android:layout_marginRight="12dp"
+           android:layout_alignParentRight="true"/>
+
+   </RelativeLayout>
 </LinearLayout>

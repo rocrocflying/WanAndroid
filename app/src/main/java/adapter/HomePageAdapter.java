@@ -25,7 +25,6 @@ public class HomePageAdapter extends RecyclerView.Adapter<HomePageAdapter.Homepa
 
         this.context = context;
         this.list = list;
-
     }
 
     @NonNull

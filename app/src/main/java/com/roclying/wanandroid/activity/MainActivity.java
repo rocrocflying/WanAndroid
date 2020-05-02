@@ -1,6 +1,6 @@
 package com.roclying.wanandroid.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
@@ -13,7 +13,7 @@ import android.widget.RadioGroup;
 import com.roclying.wanandroid.R;
 import com.roclying.wanandroid.fragment.MainFragment;
 import com.roclying.wanandroid.fragment.MineFragment;
-import com.roclying.wanandroid.fragment.VideoFragment;
+import com.roclying.wanandroid.fragment.MeizhiFragment;
 
 import java.util.ArrayList;
 
@@ -35,7 +35,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitile(getString(R.string.title_tab_home));
+        setTitile(getString(R.string.app_name));
         setBackBtnVisible(false);
 
     }
@@ -60,7 +60,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
 
         adapter = new MainFragmentAdapter(getSupportFragmentManager());
         fragments.add(new MainFragment());
-        fragments.add(new VideoFragment());
+        fragments.add(new MeizhiFragment());
         fragments.add(new MineFragment());
 
 
@@ -68,7 +68,6 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         viewPager.setCurrentItem(0);
         homeRbtn.setChecked(true);
         updateTab();
-
 
     }
 
@@ -94,6 +93,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         switch (checkedId) {
             case R.id.rbtn_home: {
                 viewPager.setCurrentItem(0);
+
                 break;
             }
             case R.id.rbtn_video: {
