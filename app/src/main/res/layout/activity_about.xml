@@ -2,22 +2,41 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:background="@color/color_activity_header"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/app_logo"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="100dp"
+        android:src="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/app_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="12dp"
+        android:text="@string/app_name"
+        android:textSize="14sp" />"
 
     <RelativeLayout
+        android:id="@+id/rl_version_check"
         android:layout_width="match_parent"
         android:layout_height="55dp"
+        android:layout_marginTop="50dp"
         android:background="@drawable/bg_item_tab_mine"
         android:clickable="true"
-        android:padding="12dp"
-        android:gravity="center_vertical">
+        android:gravity="center_vertical"
+        android:padding="12dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:text="@string/title_collection"
+            android:text="@string/title_version_check"
             android:textColor="@color/color_tab_mine_item"
             android:textSize="16sp" />
 
@@ -37,51 +56,19 @@
         android:background="@color/color_divder" />
 
     <RelativeLayout
+        android:id="@+id/rl_website"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:padding="12dp"
-        android:clickable="true"
         android:background="@drawable/bg_item_tab_mine"
-        android:gravity="center_vertical">
-
-        <TextView
-            android:id="@+id/tv_nightmode"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:text="@string/title_nightmode"
-            android:textColor="@color/color_tab_mine_item"
-            android:textSize="16sp" />
-
-
-        <Switch
-            android:id="@+id/switch_nightmode"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="12dp" />
-
-    </RelativeLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="@color/color_divder" />
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:padding="12dp"
         android:clickable="true"
-        android:background="@drawable/bg_item_tab_mine"
-        android:gravity="center_vertical">
+        android:gravity="center_vertical"
+        android:padding="12dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:text="@string/title_setting"
+            android:text="@string/title_website"
             android:textColor="@color/color_tab_mine_item"
             android:textSize="16sp" />
 
@@ -101,19 +88,19 @@
         android:background="@color/color_divder" />
 
     <RelativeLayout
-        android:id="@+id/rl_about"
+        android:id="@+id/rl_source_url"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:padding="12dp"
-        android:clickable="true"
         android:background="@drawable/bg_item_tab_mine"
-        android:gravity="center_vertical">
+        android:clickable="true"
+        android:gravity="center_vertical"
+        android:padding="12dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:text="@string/title_about"
+            android:text="@string/title_source_url"
             android:textColor="@color/color_tab_mine_item"
             android:textSize="16sp" />
 
@@ -131,4 +118,6 @@
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
         android:background="@color/color_divder" />
+
+
 </LinearLayout>

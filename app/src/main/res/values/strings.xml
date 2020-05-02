@@ -8,4 +8,8 @@
     <string name="title_daymode">日间模式</string>
     <string name="title_setting">设置</string>
     <string name="title_about">关于</string>
+    <string name="title_version_check">版本检测</string>
+    <string name="title_website">官方网站</string>
+    <string name="title_source_url">开源地址</string>
+
 </resources>

@@ -80,7 +80,7 @@ public class MainFragment extends BaseFragment implements MainContract.View {
 
     }
 
-    private void initListener() {
+    public void initListener() {
         smartRefreshLayout.setOnRefreshLoadMoreListener(new OnRefreshLoadMoreListener() {
             @Override
             public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
@@ -149,6 +149,8 @@ public class MainFragment extends BaseFragment implements MainContract.View {
         adapter.notifyDataSetChanged();
 
     }
+
+
 
     @Override
     public void showLoadDialog() {

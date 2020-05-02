@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CompoundButton;
+import android.widget.RelativeLayout;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -18,6 +19,7 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 
 import com.roclying.wanandroid.R;
+import com.roclying.wanandroid.activity.AboutActivity;
 import com.roclying.wanandroid.activity.MainActivity;
 
 import utils.WParam;
@@ -27,6 +29,7 @@ public class MineFragment extends BaseFragment {
     private Switch nightModeSwitch;
     private TextView nightModeTv;
     private Activity activity;
+    private RelativeLayout aboutLayout;
 
     @Override
     public void onAttach(Activity context) {
@@ -39,6 +42,8 @@ public class MineFragment extends BaseFragment {
         super.onViewCreated(view, savedInstanceState);
         nightModeSwitch = view.findViewById(R.id.switch_nightmode);
         nightModeTv = view.findViewById(R.id.tv_nightmode);
+        aboutLayout = view.findViewById(R.id.rl_about);
+        initListener();
     }
 
     @Override
@@ -74,5 +79,15 @@ public class MineFragment extends BaseFragment {
     @Override
     String getTitle() {
         return getString(R.string.title_tab_me);
+    }
+
+    @Override
+    void initListener() {
+        aboutLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), AboutActivity.class));
+            }
+        });
     }
 }

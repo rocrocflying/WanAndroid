@@ -32,6 +32,7 @@ public abstract class BaseFragment extends Fragment {
         return rootView;
     }
 
+
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -41,4 +42,6 @@ public abstract class BaseFragment extends Fragment {
     abstract int getLayout();
 
     abstract String getTitle();
+
+    abstract void initListener();
 }

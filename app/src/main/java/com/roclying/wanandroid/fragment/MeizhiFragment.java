@@ -86,7 +86,7 @@ public class MeizhiFragment extends BaseFragment implements MeizhiContract.meizh
         }
     }
 
-    private void initListener() {
+    public void initListener() {
         meiziRefreshLayout.setOnRefreshLoadMoreListener(new OnRefreshLoadMoreListener() {
             @Override
             public void onLoadMore(@NonNull RefreshLayout refreshLayout) {

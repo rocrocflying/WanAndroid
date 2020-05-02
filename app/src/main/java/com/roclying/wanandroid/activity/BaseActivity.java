@@ -60,9 +60,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         backIv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (l != null) {
-                    l.onClick();
-                }
+                finish();
             }
         });
     }
