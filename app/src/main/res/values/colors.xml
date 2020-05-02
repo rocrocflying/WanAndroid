@@ -13,5 +13,5 @@
     <color name="color_tab_mine_item">#363636</color>
     <color name="color_fragment_header">#FFFFFF</color>
     <color name="color_activity_header">#FFFFFF</color>
-
+    <color name="color_item_mine_select">#9e9e9e</color>
 </resources>
