@@ -73,7 +73,7 @@ public class MainFragment extends BaseFragment implements MainContract.View {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         smartRefreshLayout = view.findViewById(R.id.smart_refresh_layout);
         smartRefreshLayout.setEnableLoadMore(true);
-        smartRefreshLayout.setRefreshHeader(isNightMode?new BezierRadarHeader(getContext()):new BezierCircleHeader(getContext()));
+        smartRefreshLayout.setRefreshHeader(isNightMode ? new BezierRadarHeader(getContext()) : new BezierCircleHeader(getContext()));
         smartRefreshLayout.setRefreshFooter(new BallPulseFooter(getContext()).setAnimatingColor(getResources().getColor(R.color.color_1296db)));
         adapter = new HomePageAdapter(getContext(), articleItems);
         recyclerView.setAdapter(adapter);
@@ -150,7 +150,12 @@ public class MainFragment extends BaseFragment implements MainContract.View {
 
     }
 
+    public void clickRefresh() {
+        if (pagePresenter != null) {
+            pagePresenter.getHomePageArticleList(0, true);
+        }
 
+    }
 
     @Override
     public void showLoadDialog() {

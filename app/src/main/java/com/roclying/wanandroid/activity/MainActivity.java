@@ -93,7 +93,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         switch (checkedId) {
             case R.id.rbtn_home: {
                 viewPager.setCurrentItem(0);
-
+                ((MainFragment) fragments.get(0)).clickRefresh();
                 break;
             }
             case R.id.rbtn_video: {

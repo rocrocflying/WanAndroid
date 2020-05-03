@@ -7,5 +7,5 @@
         <item name="colorPrimaryDark">#CACACA</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-
+    <style name="splashTheme" parent="Theme.AppCompat.Light.NoActionBar"></style>
 </resources>
