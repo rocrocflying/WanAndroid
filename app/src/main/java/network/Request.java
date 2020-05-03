@@ -2,6 +2,7 @@ package network;
 
 import io.reactivex.Observable;
 import model.homepage.Article;
+import model.homepage.Banner;
 import model.homepage.Meizhi;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
@@ -16,4 +17,8 @@ public interface Request {
 
     @GET("api/v2/data/category/Girl/type/Girl/page/{page}/count/20")
     Observable<MeizhiRequestBody> getMeizhiList(@Path("page") int page);
+
+    @GET("banner/json")
+    Observable<ResposeBodyBanner> getHomeBanners();
+
 }

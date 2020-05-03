@@ -80,8 +80,8 @@ public class MeizhiFragment extends BaseFragment implements MeizhiContract.meizh
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
         if (isVisibleToUser && !hasLoadData) {
+            meiziRefreshLayout.autoRefreshAnimationOnly();
             pagerPresenter.getMeizhList(1, true);
-            meiziRefreshLayout.autoRefresh();
             hasLoadData = true;
         }
     }

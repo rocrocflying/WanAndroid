@@ -29,9 +29,12 @@ import com.scwang.smartrefresh.layout.footer.FalsifyFooter;
 import com.scwang.smartrefresh.layout.header.BezierRadarHeader;
 import com.scwang.smartrefresh.layout.header.FalsifyHeader;
 import com.scwang.smartrefresh.layout.listener.OnRefreshLoadMoreListener;
+import com.youth.banner.Banner;
+import com.youth.banner.indicator.CircleIndicator;
 
 import java.util.ArrayList;
 
+import adapter.HeaderBannerAdapter;
 import adapter.HomePageAdapter;
 import contract.MainContract;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -56,6 +59,9 @@ public class MainFragment extends BaseFragment implements MainContract.View {
     private int page;
     private HomePagePresenter pagePresenter;
     private boolean hasLoadData = false;
+    private Banner banner;
+    private ArrayList<model.homepage.Banner> banners=new ArrayList<>();
+    private HeaderBannerAdapter bannerAdapter;
 
 
     @Override
@@ -69,14 +75,22 @@ public class MainFragment extends BaseFragment implements MainContract.View {
         super.onViewCreated(view, savedInstanceState);
         boolean isNightMode = WParam.getBoolean(WParam.NIGHT_MODE);
         recyclerView = view.findViewById(R.id.recyler_view);
+        banner = view.findViewById(R.id.banner);
+        bannerAdapter = new HeaderBannerAdapter(getContext(), banners);
+        banner.setAdapter(bannerAdapter);
+        banner.setIndicator(new CircleIndicator(getContext()));
+        banner.setDelayTime(3000);
+        banner.start();
+
         recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), VERTICAL));
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         smartRefreshLayout = view.findViewById(R.id.smart_refresh_layout);
         smartRefreshLayout.setEnableLoadMore(true);
-        smartRefreshLayout.setRefreshHeader(isNightMode ? new BezierRadarHeader(getContext()) : new BezierCircleHeader(getContext()));
+        smartRefreshLayout.setRefreshHeader(isNightMode ? new BezierRadarHeader(getContext()) : new MaterialHeader(getContext()));
         smartRefreshLayout.setRefreshFooter(new BallPulseFooter(getContext()).setAnimatingColor(getResources().getColor(R.color.color_1296db)));
         adapter = new HomePageAdapter(getContext(), articleItems);
         recyclerView.setAdapter(adapter);
+
 
     }
 
@@ -102,6 +116,7 @@ public class MainFragment extends BaseFragment implements MainContract.View {
         pagePresenter = new HomePagePresenter(this);
         if (!hasLoadData) {
             pagePresenter.getHomePageArticleList(0, true);
+            pagePresenter.getBanners();
             hasLoadData = true;
         }
         initListener();
@@ -128,11 +143,10 @@ public class MainFragment extends BaseFragment implements MainContract.View {
         if (articleItems != null && articleItems.size() > 0) {
             articleItems.clear();
         }
-        smartRefreshLayout.autoRefresh();
+        smartRefreshLayout.autoRefreshAnimationOnly();
         articleItems.addAll(list);
         adapter.notifyDataSetChanged();
         smartRefreshLayout.finishRefresh(1000);
-
 
     }
 
@@ -154,6 +168,14 @@ public class MainFragment extends BaseFragment implements MainContract.View {
         if (pagePresenter != null) {
             pagePresenter.getHomePageArticleList(0, true);
         }
+
+    }
+
+    @Override
+    public void showBanner(ArrayList<model.homepage.Banner> banner) {
+        this.banners.addAll(banner);
+
+        bannerAdapter.notifyDataSetChanged();
 
     }
 

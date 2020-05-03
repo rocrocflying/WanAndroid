@@ -13,7 +13,9 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 import model.homepage.Article;
+import model.homepage.Banner;
 import network.ResposeBody;
+import network.ResposeBodyBanner;
 import network.RetrofitManager;
 
 public class HomePagePresenter implements MainContract.presenter {
@@ -57,6 +59,23 @@ public class HomePagePresenter implements MainContract.presenter {
 
 
                 );
+        return null;
+    }
+
+    @Override
+    public ArrayList<Banner> getBanners() {
+
+        Disposable disposable = RetrofitManager.getInstance().getRequest().getHomeBanners()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<ResposeBodyBanner>() {
+                    @Override
+                    public void accept(ResposeBodyBanner resposeBodyBanner) throws Exception {
+                        Log.v(TAG, resposeBodyBanner.data.size()+"");
+                        view.showBanner(resposeBodyBanner.data);
+
+                    }
+                });
         return null;
     }
 

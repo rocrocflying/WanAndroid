@@ -49,7 +49,6 @@ public class HomePageAdapter extends RecyclerView.Adapter<HomePageAdapter.Homepa
                 intent.putExtra("title", item.title);
                 intent.putExtra("link", item.link);
                 context.startActivity(intent);
-
             }
         });
     }
